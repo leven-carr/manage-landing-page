@@ -10,45 +10,348 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./images/favicon-32x32.png"
+      href="./assets/images/favicon-32x32.png"
     />
 
     <link rel="stylesheet" href="./assets/css/output.css" />
 
     <script src="./assets/js/script.js" defer></script>
   </head>
-  <body>
-    Pricing Product About Us Careers Community Get Started Bring everyone
-    together to build better products. Manage makes it simple for software teams
-    to plan day-to-day tasks while keeping the larger team goals in view. Get
-    Started What’s different about Manage? Manage provides all the functionality
-    your team needs, without the complexity. Our software is tailor-made for
-    modern digital product teams. 01 Track company-wide progress See how your
-    day-to-day tasks fit into the wider vision. Go from tracking progress at the
-    milestone level all the way done to the smallest of details. Never lose
-    sight of the bigger picture again. 02 Advanced built-in reports Set internal
-    delivery estimates and track progress toward company goals. Our customisable
-    dashboard helps you build out the reports you need to keep key stakeholders
-    informed. 03 Everything you need in one place Stop jumping from one service
-    to another to communicate, store files, track tasks and share documents.
-    Manage offers an all-in-one team productivity solution. What they’ve said
-    Anisha Li “Manage has supercharged our team’s workflow. The ability to
-    maintain visibility on larger milestones at all times keeps everyone
-    motivated.” Ali Bravo “We have been able to cancel so many other
-    subscriptions since using Manage. There is no more cross-channel confusion
-    and everyone is much more focused.” Richard Watts “Manage allows us to
-    provide structure and process. It keeps us organized and focused. I can’t
-    stop recommending them to everyone I talk to!” Shanai Gough “Their software
-    allows us to track, manage and collaborate on our projects from anywhere. It
-    keeps the whole team in-sync without being intrusive.” Get Started Simplify
-    how your team works today. Get Started Home Pricing Products About Us
-    Careers Community Privacy Policy Updates in your inbox… Go Copyright 2020.
-    All Rights Reserved
 
-    <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="https://github.com/leven-carr">Leven Carr</a>.
+  <body class="bg-body-mobile text-text-base">
+    <header>
+      <!-- Navbar -->
+      <nav>
+        <div
+          class="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 pt-10"
+        >
+          <a href="#" class="w-28 translate-y-1">
+            <img src="./assets/images/logo.svg" alt="Manage Homepage" />
+          </a>
+
+          <ul
+            class="inset-x-6 top-24 hidden flex-col justify-center gap-6 rounded-sm bg-bg-light px-6 py-8 text-center font-medium"
+          >
+            <li><a href="#" class="hover:text-text-light">Pricing</a></li>
+            <li><a href="#" class="hover:text-text-light">Product</a></li>
+            <li><a href="#" class="hover:text-text-light">About Us</a></li>
+            <li><a href="#" class="hover:text-text-light">Careers</a></li>
+            <li><a href="#" class="hover:text-text-light">Community</a></li>
+          </ul>
+
+          <a
+            href="#"
+            class="hidden rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
+          >
+            Get Started
+          </a>
+
+          <button
+            id="hamburger-btn"
+            aria-label="Toggle Menu"
+            aria-expanded="false"
+          >
+            <img src="./assets/images/icon-hamburger.svg" alt="" />
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero">
+        <div
+          class="mx-auto flex w-full max-w-6xl flex-col-reverse items-center px-6 py-10"
+        >
+          <div class="flex max-w-md flex-col items-center gap-6">
+            <div class="flex flex-col items-center gap-2 text-center">
+              <h1 class="text-4xl leading-tight font-bold tracking-tight">
+                Bring everyone together to build better products
+              </h1>
+              <p class="text-base leading-relaxed text-text-light">
+                Manage makes it simple for software teams to plan day-to-day
+                tasks while keeping the larger team goals in view.
+              </p>
+            </div>
+            <a
+              href="#"
+              class="rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
+            >
+              Get Started
+            </a>
+          </div>
+
+          <div class="max-w-md">
+            <img
+              src="./assets/images/illustration-intro.svg"
+              alt="Productivity illustration"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features">
+        <div class="flex w-full max-w-6xl flex-col items-center gap-6 py-10">
+          <div
+            class="flex max-w-md flex-col items-center gap-6 px-8 text-center"
+          >
+            <h2 class="text-3xl leading-tight font-bold tracking-tight">
+              What's different about manage?
+            </h2>
+            <p class="text-sm leading-loose text-text-light">
+              Manage provides all the functionality your team needs, without the
+              complexity. Our software is tailor-made for modern digital product
+              teams.
+            </p>
+          </div>
+
+          <ul class="flex w-full max-w-md flex-col gap-6 text-sm">
+            <li class="flex flex-col gap-2">
+              <div
+                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10"
+              >
+                <div
+                  class="rounded-full bg-brand-base px-6 py-2 font-medium text-text-white"
+                >
+                  01
+                </div>
+                <h3 class="font-medium">Track company-wide progress</h3>
+              </div>
+              <p class="px-6 leading-loose tracking-tight text-text-light">
+                See how your day-to-day tasks fit into the wider vision. Go from
+                tracking progress at the milestone level all the way down to the
+                smallest of details. Never lose sight of the bigger picture
+                again.
+              </p>
+            </li>
+            <li class="flex flex-col gap-2">
+              <div
+                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10"
+              >
+                <div
+                  class="rounded-full bg-brand-base px-6 py-2 font-medium text-text-white"
+                >
+                  02
+                </div>
+                <h3 class="font-medium">Advanced built-in reports</h3>
+              </div>
+              <p class="px-6 leading-loose tracking-tight text-text-light">
+                Set internal delivery estimates and track progress toward
+                company goals. Our customizable dashboard helps you build out
+                the reports you need to keep key stakeholders informed.
+              </p>
+            </li>
+            <li class="flex flex-col gap-2">
+              <div
+                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10"
+              >
+                <div
+                  class="rounded-full bg-brand-base px-6 py-2 font-medium text-text-white"
+                >
+                  03
+                </div>
+                <h3 class="font-medium">Everything you need in one place</h3>
+              </div>
+              <p class="px-6 leading-loose tracking-tight text-text-light">
+                Stop jumping from one service to another to communicate, store
+                files, track tasks and share documents. Manage offers an
+                all-in-one team productivity solution.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials">
+        <div
+          class="flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-10 text-center"
+        >
+          <h2 class="mb-16 text-3xl leading-tight font-bold tracking-tight">
+            What they've said
+          </h2>
+          <ul id="carousel-track">
+            <!-- Temporary hard-coded testimonial -->
+            <li
+              class="carousel-card flex max-w-sm flex-col items-center justify-center gap-6 bg-bg-light px-4 pb-8 text-sm"
+            >
+              <img
+                src="./assets/images/avatar-ali.png"
+                alt=""
+                class="avatar -mt-8 size-18"
+              />
+              <h3 class="client-name font-medium">Ali Bravo</h3>
+              <blockquote
+                class="review-text tracking-light leading-relaxed text-text-light"
+              >
+                "We have been able to cancel so many other subscriptions since
+                using Manage. There is no more cross-channel confusion and
+                everyone is much more focused."
+              </blockquote>
+            </li>
+          </ul>
+          <div
+            id="carousel-indicators"
+            class="flex items-center justify-center gap-2"
+          >
+            <!-- Temporary hard-coded indicators -->
+            <button
+              type="button"
+              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+              aria-label="Go to slide"
+            ></button>
+            <button
+              type="button"
+              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+              aria-label="Go to slide"
+              aria-selected="true"
+            ></button>
+            <button
+              type="button"
+              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+              aria-label="Go to slide"
+            ></button>
+            <button
+              type="button"
+              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+              aria-label="Go to slide"
+            ></button>
+          </div>
+          <a
+            href="#"
+            class="rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
+          >
+            Get Started
+          </a>
+        </div>
+      </section>
+
+      <!-- Testimonials Template -->
+      <template id="testimonial-template">
+        <li class="carousel-card max-w-sm">
+          <img src="" alt="" class="avatar" />
+          <h3 class="client-name"></h3>
+          <blockquote class="review-text"></blockquote>
+        </li>
+      </template>
+
+      <!-- Indicator Template -->
+      <template id="indicator-template">
+        <button
+          type="button"
+          class="size-3 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+          aria-label="Go to slide"
+        ></button>
+      </template>
+
+      <!-- Call-to-Action -->
+      <section id="cta">
+        <div
+          class="flex w-full max-w-6xl flex-col items-center gap-6 bg-brand-base bg-simplify-mobile px-10 py-20 text-center"
+        >
+          <h2
+            class="max-w-md text-4xl leading-tight font-medium tracking-tight text-text-white"
+          >
+            Simplify how your team works today.
+          </h2>
+          <a
+            href="#"
+            class="rounded-full bg-bg-base px-6 py-3 text-sm font-medium text-brand-base hover:text-brand-light"
+          >
+            Get Started
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div
+        class="grid grid-cols-1 items-center justify-items-center gap-12 bg-bg-dark px-6 py-10 text-sm text-bg-light"
+      >
+        <form id="signup-form" class="flex w-full max-w-md gap-2">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Updates in your inbox..."
+            class="flex-1 rounded-full bg-bg-base px-6 py-3 placeholder:text-text-light"
+          />
+          <button
+            id="submit-btn"
+            type="submit"
+            class="rounded-full bg-brand-base px-6 py-3 text-text-white"
+          >
+            GO
+          </button>
+        </form>
+
+        <nav>
+          <ul class="grid grid-flow-col grid-rows-4 gap-x-24 gap-y-3">
+            <li><a href="#" class="hover:text-text-light">Home</a></li>
+            <li><a href="#" class="hover:text-text-light">Pricing</a></li>
+            <li><a href="#" class="hover:text-text-light">Product</a></li>
+            <li><a href="#" class="hover:text-text-light">About Us</a></li>
+            <li><a href="#" class="hover:text-text-light">Careers</a></li>
+            <li><a href="#" class="hover:text-text-light">Community</a></li>
+            <li>
+              <a href="#" class="hover:text-text-light">Privacy Policy</a>
+            </li>
+          </ul>
+        </nav>
+
+        <ul class="flex items-center justify-center gap-8">
+          <li>
+            <a href="#" aria-label="Follow us on Facebook"
+              ><img
+                src="./assets/images/icon-facebook.svg"
+                alt=""
+                class="size-8"
+            /></a>
+          </li>
+          <li>
+            <a href="#" aria-label="Follow us on YouTube"
+              ><img
+                src="./assets/images/icon-youtube.svg"
+                alt=""
+                class="size-8"
+            /></a>
+          </li>
+          <li>
+            <a href="#" aria-label="Follow us on Twitter"
+              ><img
+                src="./assets/images/icon-twitter.svg"
+                alt=""
+                class="size-8"
+            /></a>
+          </li>
+          <li>
+            <a href="#" aria-label="Follow us on Pinterest"
+              ><img
+                src="./assets/images/icon-pinterest.svg"
+                alt=""
+                class="size-8"
+            /></a>
+          </li>
+          <li>
+            <a href="#" aria-label="Follow us on Instagram"
+              ><img
+                src="./assets/images/icon-instagram.svg"
+                alt=""
+                class="size-8"
+            /></a>
+          </li>
+        </ul>
+
+        <a href="#">
+          <img src="./assets/images/logo-white.svg" alt="Manage Homepage" />
+        </a>
+
+        <p class="text-xs text-text-light">
+          Copyright 2026. All Rights Reserved.
+        </p>
+      </div>
     </footer>
   </body>
 </html>

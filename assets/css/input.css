@@ -2,20 +2,32 @@
 
 @theme {
   /* Screens */
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 976px;
-  --breakpoint-xl: 1440px;
+  /* --breakpoint-sm: 480px; */
+  /* --breakpoint-md: 768px; */
+  --breakpoint-lg: 992px;
+  /* --breakpoint-xl: 1440px; */
 
-  /* Colors */
-  --color-orange-50: hsl(13, 100%, 96%);
-  --color-orange-400: hsl(12, 88%, 59%);
-  --color-blue-950: hsl(228, 39%, 23%);
-  --color-gray-50: hsl(0, 0%, 98%);
-  --color-gray-950: hsl(233, 12%, 13%);
+  /* Brand Color (Orange) */
+  --color-brand-base: hsl(12, 88%, 59%);
+  --color-brand-light: hsl(12, 88%, 72%);
+
+  /* Typography Color (Blue/Gray) */
+  --color-text-base: hsl(228, 39%, 23%);
+  --color-text-light: hsl(227, 12%, 61%);
+  --color-text-white: hsl(0, 0%, 100%);
+
+  /* Background Color (Neutrals) */
+  --color-bg-base: hsl(0, 0%, 100%);
+  --color-bg-light: hsl(0, 0%, 98%);
+  --color-bg-dark: hsl(233, 12%, 13%);
 
   /* Typography */
   --font-sans: "Be Vietnam Pro", sans-serif;
+
+  /* Background Images */
+  --background-image-tablet-pattern: url("../images/bg-tablet-pattern.svg");
+  --background-image-simplify-mobile: url("../images/bg-simplify-section-mobile.svg");
+  --background-image-simplify-desktop: url("../images/bg-simplify-section-desktop.svg");
 }
 
 /* 400 Regular */
@@ -24,6 +36,7 @@
   src: url("../fonts/BeVietnamPro-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 /* 500 Medium */
@@ -32,6 +45,7 @@
   src: url("../fonts/BeVietnamPro-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 /* 700 Bold */
@@ -40,6 +54,25 @@
   src: url("../fonts/BeVietnamPro-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+@utility bg-body-mobile {
+  background-image:
+    var(--background-image-tablet-pattern),
+    var(--background-image-tablet-pattern);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 28rem, 20rem;
+  background-position:
+    top -7rem right -8rem,
+    top 28rem right -12rem;
+}
+
+@utility bg-simplify-mobile {
+  background-image: var(--background-image-simplify-mobile);
+  background-repeat: no-repeat;
+  /* background-size: 100%; */
+  background-position: top 2rem left 0;
 }
 
 /* Provided Styles */
