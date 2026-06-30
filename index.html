@@ -13,24 +13,30 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+
     <link rel="stylesheet" href="./assets/css/output.css" />
 
     <script src="./assets/js/script.js" defer></script>
   </head>
 
-  <body class="bg-body-mobile text-text-base">
+  <body class="bg-body-pattern text-text-base">
     <header>
       <!-- Navbar -->
       <nav>
         <div
           class="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 pt-10"
         >
-          <a href="#" class="w-28 translate-y-1">
-            <img src="./assets/images/logo.svg" alt="Manage Homepage" />
+          <a href="#" class="translate-y-1">
+            <img
+              src="./assets/images/logo.svg"
+              alt="Manage Homepage"
+              class="w-28 lg:w-38"
+            />
           </a>
 
           <ul
-            class="inset-x-6 top-24 hidden flex-col justify-center gap-6 rounded-sm bg-bg-light px-6 py-8 text-center font-medium"
+            class="inset-x-6 top-24 hidden flex-col justify-center gap-6 rounded-sm bg-bg-light px-6 py-8 text-center font-medium lg:flex lg:flex-row lg:gap-10 lg:bg-transparent"
           >
             <li><a href="#" class="hover:text-text-light">Pricing</a></li>
             <li><a href="#" class="hover:text-text-light">Product</a></li>
@@ -41,7 +47,7 @@
 
           <a
             href="#"
-            class="hidden rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
+            class="hidden rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light lg:block"
           >
             Get Started
           </a>
@@ -50,6 +56,7 @@
             id="hamburger-btn"
             aria-label="Toggle Menu"
             aria-expanded="false"
+            class="lg:hidden"
           >
             <img src="./assets/images/icon-hamburger.svg" alt="" />
           </button>
@@ -61,21 +68,27 @@
       <!-- Hero -->
       <section id="hero">
         <div
-          class="mx-auto flex w-full max-w-6xl flex-col-reverse items-center px-6 py-10"
+          class="mx-auto flex w-full max-w-6xl flex-col-reverse items-center px-6 py-10 lg:flex-row lg:justify-center lg:gap-10"
         >
-          <div class="flex max-w-md flex-col items-center gap-6">
-            <div class="flex flex-col items-center gap-2 text-center">
-              <h1 class="text-4xl leading-tight font-bold tracking-tight">
-                Bring everyone together to build better products
+          <div
+            class="flex max-w-md flex-col items-center gap-6 lg:items-start lg:gap-8"
+          >
+            <div
+              class="flex flex-col items-center gap-2 text-center lg:items-start lg:gap-6 lg:text-left"
+            >
+              <h1
+                class="text-4xl leading-tight font-bold tracking-tight lg:text-5xl"
+              >
+                Bring everyone together to build better products.
               </h1>
-              <p class="text-base leading-relaxed text-text-light">
+              <p class="text-base leading-relaxed text-text-light lg:max-w-88">
                 Manage makes it simple for software teams to plan day-to-day
                 tasks while keeping the larger team goals in view.
               </p>
             </div>
             <a
               href="#"
-              class="rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
+              class="rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light"
             >
               Get Started
             </a>
@@ -92,24 +105,32 @@
 
       <!-- Features -->
       <section id="features">
-        <div class="flex w-full max-w-6xl flex-col items-center gap-6 py-10">
+        <div
+          class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 py-10 lg:flex-row lg:items-start lg:justify-center lg:gap-10"
+        >
           <div
-            class="flex max-w-md flex-col items-center gap-6 px-8 text-center"
+            class="flex max-w-md flex-col items-center gap-6 px-8 text-center lg:max-w-lg lg:items-start lg:justify-start lg:text-left"
           >
-            <h2 class="text-3xl leading-tight font-bold tracking-tight">
+            <h2
+              class="text-3xl leading-tight font-bold tracking-tight lg:text-4xl"
+            >
               What's different about manage?
             </h2>
-            <p class="text-sm leading-loose text-text-light">
+            <p
+              class="text-sm leading-loose text-text-light lg:max-w-88 lg:text-base"
+            >
               Manage provides all the functionality your team needs, without the
               complexity. Our software is tailor-made for modern digital product
               teams.
             </p>
           </div>
 
-          <ul class="flex w-full max-w-md flex-col gap-6 text-sm">
-            <li class="flex flex-col gap-2">
+          <ul
+            class="flex w-full max-w-md flex-col gap-6 text-sm lg:max-w-138 lg:gap-4 lg:text-base"
+          >
+            <li class="flex flex-col gap-2 lg:gap-0">
               <div
-                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10"
+                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10 lg:bg-transparent"
               >
                 <div
                   class="rounded-full bg-brand-base px-6 py-2 font-medium text-text-white"
@@ -118,16 +139,18 @@
                 </div>
                 <h3 class="font-medium">Track company-wide progress</h3>
               </div>
-              <p class="px-6 leading-loose tracking-tight text-text-light">
+              <p
+                class="px-6 leading-loose tracking-tight text-text-light lg:ml-20"
+              >
                 See how your day-to-day tasks fit into the wider vision. Go from
                 tracking progress at the milestone level all the way down to the
                 smallest of details. Never lose sight of the bigger picture
                 again.
               </p>
             </li>
-            <li class="flex flex-col gap-2">
+            <li class="flex flex-col gap-2 lg:gap-0">
               <div
-                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10"
+                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10 lg:bg-transparent"
               >
                 <div
                   class="rounded-full bg-brand-base px-6 py-2 font-medium text-text-white"
@@ -136,15 +159,17 @@
                 </div>
                 <h3 class="font-medium">Advanced built-in reports</h3>
               </div>
-              <p class="px-6 leading-loose tracking-tight text-text-light">
+              <p
+                class="px-6 leading-loose tracking-tight text-text-light lg:ml-20"
+              >
                 Set internal delivery estimates and track progress toward
                 company goals. Our customizable dashboard helps you build out
                 the reports you need to keep key stakeholders informed.
               </p>
             </li>
-            <li class="flex flex-col gap-2">
+            <li class="flex flex-col gap-2 lg:gap-0">
               <div
-                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10"
+                class="ml-6 flex items-center gap-4 rounded-l-full bg-brand-base/10 lg:bg-transparent"
               >
                 <div
                   class="rounded-full bg-brand-base px-6 py-2 font-medium text-text-white"
@@ -153,7 +178,9 @@
                 </div>
                 <h3 class="font-medium">Everything you need in one place</h3>
               </div>
-              <p class="px-6 leading-loose tracking-tight text-text-light">
+              <p
+                class="px-6 leading-loose tracking-tight text-text-light lg:ml-20"
+              >
                 Stop jumping from one service to another to communicate, store
                 files, track tasks and share documents. Manage offers an
                 all-in-one team productivity solution.
@@ -166,12 +193,14 @@
       <!-- Testimonials -->
       <section id="testimonials">
         <div
-          class="flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-10 text-center"
+          class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-10 text-center"
         >
-          <h2 class="mb-16 text-3xl leading-tight font-bold tracking-tight">
+          <h2
+            class="mb-16 text-3xl leading-tight font-bold tracking-tight lg:mb-12 lg:text-4xl"
+          >
             What they've said
           </h2>
-          <ul id="carousel-track">
+          <ul id="carousel-track flex gap-6">
             <!-- Temporary hard-coded testimonial -->
             <li
               class="carousel-card flex max-w-sm flex-col items-center justify-center gap-6 bg-bg-light px-4 pb-8 text-sm"
@@ -220,7 +249,7 @@
           </div>
           <a
             href="#"
-            class="rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
+            class="rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light"
           >
             Get Started
           </a>
@@ -246,9 +275,12 @@
       </template>
 
       <!-- Call-to-Action -->
-      <section id="cta">
+      <section
+        id="cta"
+        class="bg-brand-base bg-simplify-pattern lg:bg-simplify-desktop"
+      >
         <div
-          class="flex w-full max-w-6xl flex-col items-center gap-6 bg-brand-base bg-simplify-mobile px-10 py-20 text-center"
+          class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-10 py-20 text-center lg:flex-row lg:justify-between lg:text-left"
         >
           <h2
             class="max-w-md text-4xl leading-tight font-medium tracking-tight text-text-white"
@@ -257,7 +289,7 @@
           </h2>
           <a
             href="#"
-            class="rounded-full bg-bg-base px-6 py-3 text-sm font-medium text-brand-base hover:text-brand-light"
+            class="rounded-full bg-bg-base px-6 py-3 text-center text-sm font-medium text-brand-base hover:text-brand-light lg:w-40 lg:text-base"
           >
             Get Started
           </a>
@@ -266,89 +298,107 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-bg-dark">
       <div
-        class="grid grid-cols-1 items-center justify-items-center gap-12 bg-bg-dark px-6 py-10 text-sm text-bg-light"
+        class="mx-auto grid max-w-6xl grid-cols-1 items-center justify-items-center gap-12 px-6 py-10 text-sm text-bg-light lg:grid-cols-[auto_1fr_1fr] lg:grid-rows-2 lg:gap-10 lg:text-base"
       >
-        <form id="signup-form" class="flex w-full max-w-md gap-2">
+        <form
+          id="signup-form"
+          class="relative flex w-full max-w-md gap-2 lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-1 lg:justify-self-end"
+        >
           <input
             type="email"
             name="email"
             id="email"
+            aria-invalid="false"
             placeholder="Updates in your inbox..."
-            class="flex-1 rounded-full bg-bg-base px-6 py-3 placeholder:text-text-light"
+            class="peer flex-1 rounded-full border-2 border-transparent bg-bg-base px-6 py-3 placeholder:text-text-light aria-invalid:border-red-600"
           />
+          <p
+            id="error-msg"
+            class="top-14 left-6 hidden text-sm text-red-600 italic peer-aria-invalid:absolute peer-aria-invalid:block"
+          >
+            Please enter a valid email
+          </p>
           <button
             id="submit-btn"
             type="submit"
-            class="rounded-full bg-brand-base px-6 py-3 text-text-white"
+            class="cursor-pointer rounded-full bg-brand-base px-6 py-3 text-text-white hover:bg-brand-light"
           >
             GO
           </button>
         </form>
 
-        <nav>
-          <ul class="grid grid-flow-col grid-rows-4 gap-x-24 gap-y-3">
-            <li><a href="#" class="hover:text-text-light">Home</a></li>
-            <li><a href="#" class="hover:text-text-light">Pricing</a></li>
-            <li><a href="#" class="hover:text-text-light">Product</a></li>
-            <li><a href="#" class="hover:text-text-light">About Us</a></li>
-            <li><a href="#" class="hover:text-text-light">Careers</a></li>
-            <li><a href="#" class="hover:text-text-light">Community</a></li>
+        <nav class="lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+          <ul
+            class="s grid grid-flow-col grid-rows-4 gap-x-24 gap-y-3 lg:gap-y-6"
+          >
+            <li><a href="#" class="hover:text-brand-base">Home</a></li>
+            <li><a href="#" class="hover:text-brand-base">Pricing</a></li>
+            <li><a href="#" class="hover:text-brand-base">Product</a></li>
+            <li><a href="#" class="hover:text-brand-base">About Us</a></li>
+            <li><a href="#" class="hover:text-brand-base">Careers</a></li>
+            <li><a href="#" class="hover:text-brand-base">Community</a></li>
             <li>
-              <a href="#" class="hover:text-text-light">Privacy Policy</a>
+              <a href="#" class="hover:text-brand-base">Privacy Policy</a>
             </li>
           </ul>
         </nav>
 
-        <ul class="flex items-center justify-center gap-8">
+        <ul
+          class="flex items-center justify-center gap-8 lg:col-span-1 lg:col-start-1 lg:row-span-1 lg:row-start-2 lg:gap-4 lg:justify-self-start"
+        >
           <li>
             <a href="#" aria-label="Follow us on Facebook"
-              ><img
-                src="./assets/images/icon-facebook.svg"
-                alt=""
-                class="size-8"
-            /></a>
+              ><i
+                class="fa-brands fa-facebook text-2xl text-text-white hover:text-brand-base"
+              ></i
+            ></a>
           </li>
           <li>
             <a href="#" aria-label="Follow us on YouTube"
-              ><img
-                src="./assets/images/icon-youtube.svg"
-                alt=""
-                class="size-8"
-            /></a>
+              ><i
+                class="fa-brands fa-youtube text-2xl text-text-white hover:text-brand-base"
+              ></i
+            ></a>
           </li>
           <li>
             <a href="#" aria-label="Follow us on Twitter"
-              ><img
-                src="./assets/images/icon-twitter.svg"
-                alt=""
-                class="size-8"
-            /></a>
+              ><i
+                class="fa-brands fa-twitter text-2xl text-text-white hover:text-brand-base"
+              ></i
+            ></a>
           </li>
           <li>
             <a href="#" aria-label="Follow us on Pinterest"
-              ><img
-                src="./assets/images/icon-pinterest.svg"
-                alt=""
-                class="size-8"
-            /></a>
+              ><i
+                class="fa-brands fa-pinterest text-2xl text-text-white hover:text-brand-base"
+              ></i
+            ></a>
           </li>
           <li>
             <a href="#" aria-label="Follow us on Instagram"
-              ><img
-                src="./assets/images/icon-instagram.svg"
-                alt=""
-                class="size-8"
-            /></a>
+              ><i
+                class="fa-brands fa-instagram text-2xl text-text-white hover:text-brand-base"
+              ></i
+            ></a>
           </li>
         </ul>
 
-        <a href="#">
-          <img src="./assets/images/logo-white.svg" alt="Manage Homepage" />
+        <a
+          href="#"
+          class="lg:col-span-1 lg:col-start-1 lg:row-span-1 lg:row-start-1 lg:justify-self-start"
+        >
+          <img
+            src="./assets/images/logo-white.svg"
+            alt="Manage Homepage"
+            class="lg:w-38"
+          />
         </a>
 
-        <p class="text-xs text-text-light">
+        <p
+          class="text-xs text-text-light lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-2 lg:justify-self-end lg:text-sm"
+        >
           Copyright 2026. All Rights Reserved.
         </p>
       </div>

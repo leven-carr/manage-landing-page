@@ -57,7 +57,7 @@
   font-display: swap;
 }
 
-@utility bg-body-mobile {
+@utility bg-body-pattern {
   background-image:
     var(--background-image-tablet-pattern),
     var(--background-image-tablet-pattern);
@@ -66,13 +66,24 @@
   background-position:
     top -7rem right -8rem,
     top 28rem right -12rem;
+
+  @media (width >= 992px) {
+    background-size: 42rem, 44rem;
+    background-position:
+      top -8rem right -2rem,
+      top 60rem left -24rem;
+  }
 }
 
-@utility bg-simplify-mobile {
+@utility bg-simplify-pattern {
   background-image: var(--background-image-simplify-mobile);
   background-repeat: no-repeat;
-  /* background-size: 100%; */
   background-position: top 2rem left 0;
+
+  @media (width >= 992px) {
+    background-image: var(--background-image-simplify-desktop);
+    background-position: top -6rem left 12rem;
+  }
 }
 
 /* Provided Styles */
