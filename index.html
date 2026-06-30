@@ -22,56 +22,83 @@
 
   <body class="bg-body-pattern text-text-base">
     <header>
-      <!-- Navbar -->
-      <nav>
-        <div
-          class="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 pt-10"
+      <div
+        class="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 pt-10 lg:pb-10"
+      >
+        <!-- Logo -->
+        <a href="#" class="translate-y-1">
+          <img
+            src="./assets/images/logo.svg"
+            alt="Manage Homepage"
+            class="w-28 lg:w-38"
+          />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden items-center justify-center gap-8 text-center font-medium lg:flex"
         >
-          <a href="#" class="translate-y-1">
-            <img
-              src="./assets/images/logo.svg"
-              alt="Manage Homepage"
-              class="w-28 lg:w-38"
-            />
-          </a>
+          <a href="#" class="hover:text-text-light">Pricing</a>
+          <a href="#" class="hover:text-text-light">Product</a>
+          <a href="#" class="hover:text-text-light">About Us</a>
+          <a href="#" class="hover:text-text-light">Careers</a>
+          <a href="#" class="hover:text-text-light">Community</a>
+        </nav>
 
-          <ul
-            class="inset-x-6 top-24 hidden flex-col justify-center gap-6 rounded-sm bg-bg-light px-6 py-8 text-center font-medium lg:flex lg:flex-row lg:gap-10 lg:bg-transparent"
-          >
-            <li><a href="#" class="hover:text-text-light">Pricing</a></li>
-            <li><a href="#" class="hover:text-text-light">Product</a></li>
-            <li><a href="#" class="hover:text-text-light">About Us</a></li>
-            <li><a href="#" class="hover:text-text-light">Careers</a></li>
-            <li><a href="#" class="hover:text-text-light">Community</a></li>
-          </ul>
+        <!-- Get Started Button -->
+        <a
+          href="#"
+          class="hidden rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light lg:block"
+        >
+          Get Started
+        </a>
 
-          <a
-            href="#"
-            class="hidden rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light lg:block"
-          >
-            Get Started
-          </a>
+        <!-- Mobile Menu Button -->
+        <button
+          id="menu-btn"
+          aria-label="Toggle Menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="z-toggle cursor-pointer lg:hidden"
+        >
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
 
-          <button
-            id="hamburger-btn"
-            aria-label="Toggle Menu"
-            aria-expanded="false"
-            class="lg:hidden"
+        <!-- Mobile Menu Backdrop -->
+        <div
+          id="menu-backdrop"
+          class="fixed inset-0 z-backdrop hidden bg-linear-to-b from-transparent to-slate-900/80"
+        ></div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Menu"
+          class="absolute inset-x-6 top-24 z-modal mx-auto hidden max-w-md rounded-sm bg-bg-base px-6 py-9"
+        >
+          <nav
+            class="flex flex-col items-center justify-center gap-6 text-center font-medium"
           >
-            <img src="./assets/images/icon-hamburger.svg" alt="" />
-          </button>
+            <a href="#" class="hover:text-text-light">Pricing</a>
+            <a href="#" class="hover:text-text-light">Product</a>
+            <a href="#" class="hover:text-text-light">About Us</a>
+            <a href="#" class="hover:text-text-light">Careers</a>
+            <a href="#" class="hover:text-text-light">Community</a>
+          </nav>
         </div>
-      </nav>
+      </div>
     </header>
 
     <main>
       <!-- Hero -->
       <section id="hero">
         <div
-          class="mx-auto flex w-full max-w-6xl flex-col-reverse items-center px-6 py-10 lg:flex-row lg:justify-center lg:gap-10"
+          class="mx-auto flex w-full max-w-6xl flex-col-reverse items-center py-10 lg:flex-row lg:justify-between lg:gap-10"
         >
           <div
-            class="flex max-w-md flex-col items-center gap-6 lg:items-start lg:gap-8"
+            class="flex max-w-md flex-col items-center gap-6 px-8 lg:max-w-lg lg:items-start lg:gap-8"
           >
             <div
               class="flex flex-col items-center gap-2 text-center lg:items-start lg:gap-6 lg:text-left"
@@ -94,7 +121,7 @@
             </a>
           </div>
 
-          <div class="max-w-md">
+          <div class="max-w-md lg:max-w-lg">
             <img
               src="./assets/images/illustration-intro.svg"
               alt="Productivity illustration"
@@ -106,7 +133,7 @@
       <!-- Features -->
       <section id="features">
         <div
-          class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 py-10 lg:flex-row lg:items-start lg:justify-center lg:gap-10"
+          class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 py-10 lg:flex-row lg:items-start lg:justify-between lg:gap-10"
         >
           <div
             class="flex max-w-md flex-col items-center gap-6 px-8 text-center lg:max-w-lg lg:items-start lg:justify-start lg:text-left"
@@ -200,10 +227,10 @@
           >
             What they've said
           </h2>
-          <ul id="carousel-track flex gap-6">
+          <ul id="carousel-track" class="flex gap-6">
             <!-- Temporary hard-coded testimonial -->
             <li
-              class="carousel-card flex max-w-sm flex-col items-center justify-center gap-6 bg-bg-light px-4 pb-8 text-sm"
+              class="carousel-card flex max-w-md flex-col items-center justify-center gap-6 bg-bg-light px-6 pb-8 text-sm"
             >
               <img
                 src="./assets/images/avatar-ali.png"
@@ -306,20 +333,22 @@
           id="signup-form"
           class="relative flex w-full max-w-md gap-2 lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-1 lg:justify-self-end"
         >
+          <label for="email-input" class="sr-only">Email Address</label>
           <input
             type="email"
             name="email"
-            id="email"
+            id="email-input"
+            required
             aria-invalid="false"
+            aria-describedby="error-msg"
             placeholder="Updates in your inbox..."
-            class="peer flex-1 rounded-full border-2 border-transparent bg-bg-base px-6 py-3 placeholder:text-text-light aria-invalid:border-red-600"
+            class="flex-1 rounded-full border-2 border-transparent bg-bg-base px-6 py-3 placeholder:text-text-light aria-invalid:border-red-600"
           />
           <p
             id="error-msg"
-            class="top-14 left-6 hidden text-sm text-red-600 italic peer-aria-invalid:absolute peer-aria-invalid:block"
-          >
-            Please enter a valid email
-          </p>
+            aria-live="polite"
+            class="absolute top-14 left-6 text-sm text-red-600 italic"
+          ></p>
           <button
             id="submit-btn"
             type="submit"
@@ -331,7 +360,7 @@
 
         <nav class="lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-1">
           <ul
-            class="s grid grid-flow-col grid-rows-4 gap-x-24 gap-y-3 lg:gap-y-6"
+            class="grid grid-flow-col grid-rows-4 gap-x-24 gap-y-3 lg:gap-y-6"
           >
             <li><a href="#" class="hover:text-brand-base">Home</a></li>
             <li><a href="#" class="hover:text-brand-base">Pricing</a></li>

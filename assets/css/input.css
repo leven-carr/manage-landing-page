@@ -3,7 +3,7 @@
 @theme {
   /* Screens */
   /* --breakpoint-sm: 480px; */
-  /* --breakpoint-md: 768px; */
+  --breakpoint-md: 640px;
   --breakpoint-lg: 992px;
   /* --breakpoint-xl: 1440px; */
 
@@ -28,6 +28,11 @@
   --background-image-tablet-pattern: url("../images/bg-tablet-pattern.svg");
   --background-image-simplify-mobile: url("../images/bg-simplify-section-mobile.svg");
   --background-image-simplify-desktop: url("../images/bg-simplify-section-desktop.svg");
+
+  /* Z-Indexes */
+  --z-index-backdrop: 30;
+  --z-index-modal: 40;
+  --z-index-toggle: 50;
 }
 
 /* 400 Regular */
