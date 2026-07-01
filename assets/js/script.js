@@ -108,16 +108,50 @@ function initMobileMenu() {
 }
 
 //
-// EMAIL VALIDATION
+// SIGNUP FORM
 //
 
-function initEmailValidation() {
+function initSignupForm() {
   const form = document.getElementById("signup-form");
   const emailInput = document.getElementById("email-input");
   const errorMsg = document.getElementById("error-msg");
   const submitBtn = document.getElementById("submit-btn");
+  const successModal = document.getElementById("success-modal");
+  const dismissBtn = document.getElementById("dismiss-btn");
 
-  function handleSubmit() {}
+  // --- Function Definitions ---
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!emailInput.checkValidity()) {
+      showError();
+      return;
+    }
+
+    clearError();
+    successModal.showModal();
+    form.reset();
+  }
+
+  function showError() {
+    emailInput.setAttribute("aria-invalid", String(true));
+    errorMsg.textContent = "Please enter a valid email";
+  }
+
+  function clearError() {
+    emailInput.setAttribute("aria-invalid", String(false));
+    errorMsg.textContent = "";
+  }
+
+  // --- Event Listeners ---
+
+  form.addEventListener("submit", handleSubmit);
+  emailInput.addEventListener("input", clearError);
+  dismissBtn.addEventListener("click", () => {
+    successModal.close();
+  });
 }
 
 initMobileMenu();
+initSignupForm();

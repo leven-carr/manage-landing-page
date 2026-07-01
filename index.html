@@ -78,7 +78,7 @@
           aria-modal="true"
           aria-label="Mobile Menu"
           aria-hidden="true"
-          class="lg:aria-hidden absolute inset-x-6 top-24 z-modal mx-auto hidden max-w-md rounded-sm bg-bg-base px-6 py-9 lg:hidden"
+          class="lg:aria-hidden absolute inset-x-6 top-24 z-modal mx-auto hidden max-w-md rounded bg-bg-base px-6 py-9 lg:hidden"
         >
           <nav
             class="flex flex-col items-center justify-center gap-6 text-center font-medium"
@@ -333,6 +333,7 @@
       >
         <form
           id="signup-form"
+          novalidate
           class="relative flex w-full max-w-md gap-2 lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-1 lg:justify-self-end"
         >
           <label for="email-input" class="sr-only">Email Address</label>
@@ -344,7 +345,7 @@
             aria-invalid="false"
             aria-describedby="error-msg"
             placeholder="Updates in your inbox..."
-            class="flex-1 rounded-full border-2 border-transparent bg-bg-base px-6 py-3 placeholder:text-text-light aria-invalid:border-red-600"
+            class="flex-1 rounded-full border-2 border-transparent bg-bg-base px-6 py-3 text-text-base placeholder:text-text-light aria-invalid:border-red-600"
           />
           <p
             id="error-msg"
@@ -430,5 +431,32 @@
         </p>
       </div>
     </footer>
+
+    <!-- Signup Form Success Modal -->
+    <dialog
+      id="success-modal"
+      aria-labelledby="modal-title"
+      class="fixed inset-0 m-auto h-fit w-[85%] max-w-md rounded-lg bg-brand-base px-8 py-10 text-text-white backdrop:bg-slate-900/65 lg:max-w-lg lg:p-12"
+    >
+      <div
+        class="flex flex-col items-start justify-center gap-6 text-left lg:items-center lg:text-center"
+      >
+        <h2
+          id="modal-title"
+          class="text-3xl leading-tight font-bold lg:text-4xl"
+        >
+          Welcome to the team!
+        </h2>
+        <p class="leading-relaxed tracking-wide lg:text-xl">
+          You have successfully subscribed to our email list.
+        </p>
+        <button
+          id="dismiss-btn"
+          class="mt-4 w-fit cursor-pointer self-center rounded-full bg-bg-base px-6 py-3 font-medium text-brand-base hover:text-brand-light lg:text-lg"
+        >
+          Close
+        </button>
+      </div>
+    </dialog>
   </body>
 </html>
