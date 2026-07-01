@@ -61,13 +61,14 @@
           aria-expanded="false"
           class="z-toggle cursor-pointer lg:hidden"
         >
-          <i class="fa-solid fa-bars text-2xl"></i>
+          <i aria-hidden="true" class="fa-solid fa-bars text-2xl"></i>
         </button>
 
         <!-- Mobile Menu Backdrop -->
         <div
           id="menu-backdrop"
-          class="fixed inset-0 z-backdrop hidden bg-linear-to-b from-transparent to-slate-900/80"
+          aria-hidden="true"
+          class="fixed inset-0 z-backdrop hidden bg-linear-to-b from-transparent to-slate-900/80 lg:hidden"
         ></div>
 
         <!-- Mobile Menu -->
@@ -76,7 +77,8 @@
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Menu"
-          class="absolute inset-x-6 top-24 z-modal mx-auto hidden max-w-md rounded-sm bg-bg-base px-6 py-9"
+          aria-hidden="true"
+          class="lg:aria-hidden absolute inset-x-6 top-24 z-modal mx-auto hidden max-w-md rounded-sm bg-bg-base px-6 py-9 lg:hidden"
         >
           <nav
             class="flex flex-col items-center justify-center gap-6 text-center font-medium"

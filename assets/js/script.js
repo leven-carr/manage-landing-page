@@ -14,8 +14,11 @@ function initMobileMenu() {
     const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
     const shouldOpen = !isOpen;
 
-    // Update aria-expanded attribute
+    // Update aria-expanded attribute on menuBtn
     menuBtn.setAttribute("aria-expanded", String(shouldOpen));
+
+    // Update aria-hidden attribute on mobileMenu
+    mobileMenu.setAttribute("aria-hidden", String(!shouldOpen));
 
     // Update layout class
     mobileMenu.classList.toggle("hidden", isOpen);
@@ -37,6 +40,7 @@ function initMobileMenu() {
     if (e.key === "Escape") {
       toggleMenu();
       document.removeEventListener("keydown", handleFocusTrap);
+      menuBtn.focus();
       return;
     }
 
@@ -71,21 +75,49 @@ function initMobileMenu() {
 
   // Toggle menu open/closed on menuBtn click
   menuBtn.addEventListener("click", () => {
-    const isOpen = toggleMenu();
+    const justOpened = toggleMenu();
 
-    if (isOpen) {
+    if (justOpened) {
       document.addEventListener("keydown", handleFocusTrap);
-      menuBtn.focus();
+      mobileMenu.querySelector("button, [href], input")?.focus();
     } else {
       document.removeEventListener("keydown", handleFocusTrap);
+      menuBtn.focus();
     }
+  });
+
+  // Close menu on navigation link click
+  mobileMenu.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+
+    if (!link) {
+      return;
+    }
+
+    toggleMenu();
+    document.removeEventListener("keydown", handleFocusTrap);
+    menuBtn.focus();
   });
 
   // Close menu on backdrop click
   menuBackdrop.addEventListener("click", () => {
     toggleMenu();
     document.removeEventListener("keydown", handleFocusTrap);
+    menuBtn.focus();
   });
+}
+
+//
+// EMAIL VALIDATION
+//
+
+function initEmailValidation() {
+  const form = document.getElementById("signup-form");
+  const emailInput = document.getElementById("email-input");
+  const errorMsg = document.getElementById("error-msg");
+  const submitBtn = document.getElementById("submit-btn");
+
+  function handleSubmit() {}
 }
 
 initMobileMenu();
