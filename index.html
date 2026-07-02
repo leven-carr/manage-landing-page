@@ -221,64 +221,23 @@
 
       <!-- Testimonials -->
       <section id="testimonials">
-        <div
-          class="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 py-10 text-center"
-        >
+        <div class="mx-auto flex w-full flex-col gap-8 pt-10 pb-20 text-center">
           <h2
-            class="mb-16 text-3xl leading-tight font-bold tracking-tight lg:mb-12 lg:text-4xl"
+            class="px-6 text-3xl leading-tight font-bold tracking-tight lg:text-4xl"
           >
             What they've said
           </h2>
-          <ul id="carousel-track" class="flex gap-6">
-            <!-- Temporary hard-coded testimonial -->
-            <li
-              class="carousel-card flex max-w-md flex-col items-center justify-center gap-6 bg-bg-light px-6 pb-8 text-sm"
-            >
-              <img
-                src="./assets/images/avatar-ali.png"
-                alt=""
-                class="avatar -mt-8 size-18"
-              />
-              <h3 class="client-name font-medium">Ali Bravo</h3>
-              <blockquote
-                class="review-text tracking-light leading-relaxed text-text-light"
-              >
-                "We have been able to cancel so many other subscriptions since
-                using Manage. There is no more cross-channel confusion and
-                everyone is much more focused."
-              </blockquote>
-            </li>
-          </ul>
+          <ul
+            id="carousel-track"
+            class="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-4 py-12"
+          ></ul>
           <div
             id="carousel-indicators"
-            class="flex items-center justify-center gap-2"
-          >
-            <!-- Temporary hard-coded indicators -->
-            <button
-              type="button"
-              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
-              aria-label="Go to slide"
-            ></button>
-            <button
-              type="button"
-              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
-              aria-label="Go to slide"
-              aria-selected="true"
-            ></button>
-            <button
-              type="button"
-              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
-              aria-label="Go to slide"
-            ></button>
-            <button
-              type="button"
-              class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
-              aria-label="Go to slide"
-            ></button>
-          </div>
+            class="flex justify-center gap-2 lg:hidden"
+          ></div>
           <a
             href="#"
-            class="rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light"
+            class="mx-auto self-center rounded-full bg-brand-base px-6 py-3 text-text-white shadow-lg shadow-brand-base/35 hover:bg-brand-light"
           >
             Get Started
           </a>
@@ -287,10 +246,14 @@
 
       <!-- Testimonials Template -->
       <template id="testimonial-template">
-        <li class="carousel-card max-w-sm">
-          <img src="" alt="" class="avatar" />
-          <h3 class="client-name"></h3>
-          <blockquote class="review-text"></blockquote>
+        <li
+          class="carousel-card flex w-full max-w-md shrink-0 snap-center flex-col items-center justify-center gap-6 bg-bg-light px-6 pb-8 text-sm lg:max-w-lg lg:text-base"
+        >
+          <img src="" alt="" class="avatar -mt-8 size-18 rounded-full" />
+          <h3 class="client-name font-medium"></h3>
+          <blockquote
+            class="review-text leading-loose text-text-light"
+          ></blockquote>
         </li>
       </template>
 
@@ -298,7 +261,7 @@
       <template id="indicator-template">
         <button
           type="button"
-          class="size-3 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+          class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
           aria-label="Go to slide"
         ></button>
       </template>
