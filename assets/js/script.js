@@ -8,7 +8,7 @@ function initMobileMenu() {
 
   // --- Function Definitions ---
 
-  //   Helper Function: Visibly open/close mobile menu
+  //   Visibly open/close mobile menu
   function toggleMenu() {
     // Check state of menu
     const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
@@ -34,7 +34,7 @@ function initMobileMenu() {
     return shouldOpen;
   }
 
-  //   Helper Function: Handle focus trap for mobile menu
+  //   Handle focus trap for mobile menu
   function handleFocusTrap(e) {
     // Close menu and remove focus trap if Escape key is pressed
     if (e.key === "Escape") {
@@ -110,7 +110,6 @@ function initMobileMenu() {
 //
 // SIGNUP FORM
 //
-
 function initSignupForm() {
   const form = document.getElementById("signup-form");
   const emailInput = document.getElementById("email-input");
@@ -153,5 +152,228 @@ function initSignupForm() {
   });
 }
 
-initMobileMenu();
-initSignupForm();
+//
+// TESTIMONIALS CAROUSEL
+//
+async function initCarousel() {
+  let testimonials = [];
+  let allCards = [];
+  let dots = [];
+  let currentCardIndex = 1;
+  let isTeleporting = false;
+
+  const carouselTrack = document.getElementById("carousel-track");
+  const carouselIndicators = document.getElementById("carousel-indicators");
+
+  // --- Function Definitions ---
+
+  // Fetch data and populate testimonials
+  async function populateCarousel() {
+    // Fetch data
+    const response = await fetch("assets/data/testimonials.json");
+    testimonials = await response.json();
+
+    const template = document.getElementById("testimonial-template");
+
+    // Create and append cards
+    testimonials.forEach((testimonial) => {
+      // Clone template
+      const clone = template.content.cloneNode(true);
+
+      // Fill in content of clone
+      clone.querySelector("img.avatar").src = testimonial.avatar;
+      clone.querySelector("h3.client-name").textContent = testimonial.name;
+      clone.querySelector("blockquote.review-text").textContent =
+        `"${testimonial.review}"`;
+
+      // Append clone to carousel
+      carouselTrack.appendChild(clone);
+    });
+  }
+
+  // Populate indicator dots
+  function populateIndicators() {
+    const template = document.getElementById("indicator-template");
+    const startIndex = testimonials.length >= 3 ? 1 : 0;
+
+    testimonials.forEach((testimonial, i) => {
+      // Clone template and ensure we are accessing the button element
+      const clone = template.content.cloneNode(true);
+      const dotBtn = clone.querySelector("button.carousel-dot");
+
+      // Set accessibility attributes accordingly
+      dotBtn.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      dotBtn.setAttribute("aria-selected", i === startIndex ? "true" : "false");
+
+      // Append clone to indicator container
+      carouselIndicators.appendChild(clone);
+    });
+  }
+
+  // Create and append clones for infinite scrolling
+  function createScrollClones() {
+    // Get array of populated testimonial cards
+    const originalCards = Array.from(carouselTrack.children);
+
+    // Clone first and last card
+    const firstClone = originalCards[0].cloneNode(true);
+    const lastClone = originalCards[originalCards.length - 1].cloneNode(true);
+
+    // Mark clones with is-clone class
+    firstClone.classList.add("is-clone");
+    lastClone.classList.add("is-clone");
+
+    // Append clones: firstClone at end of track, lastClone at beginning
+    carouselTrack.appendChild(firstClone);
+    carouselTrack.insertBefore(lastClone, carouselTrack.firstElementChild);
+
+    // Get array of all cards including clones
+    allCards = Array.from(carouselTrack.children);
+  }
+
+  // Calculate scroll distance necessary to center a given card
+  function getScrollPosition(i) {
+    const card = allCards[i];
+    const trackWidth = carouselTrack.clientWidth;
+    const cardWidth = card.clientWidth;
+
+    const position = card.offsetLeft - (trackWidth - cardWidth) / 2;
+
+    return position;
+  }
+
+  // Set carousel's starting position
+  function setInitialPosition() {
+    // Identify index of starting card
+    const totalOriginals = testimonials.length;
+    const startIndex = totalOriginals >= 3 ? 1 : 0;
+    currentCardIndex = startIndex + 1;
+
+    // Calculate and scroll instantly to that card's centered position
+    carouselTrack.scrollTo({
+      left: getScrollPosition(currentCardIndex),
+      behavior: "auto",
+    });
+  }
+
+  // Enable navigation from indicator clicks
+  function initDotNavigation() {
+    dots = Array.from(
+      carouselIndicators.querySelectorAll("button.carousel-dot"),
+    );
+
+    carouselIndicators.addEventListener("click", (e) => {
+      const clickedDot = e.target.closest("button.carousel-dot");
+      if (!clickedDot) return;
+
+      // Identify index of the card that corresponds to the clicked dot
+      currentCardIndex = dots.indexOf(clickedDot) + 1;
+
+      // Calculate and scroll smoothly to that card's centered position
+      carouselTrack.scrollTo({
+        left: getScrollPosition(currentCardIndex),
+        behavior: "smooth",
+      });
+    });
+  }
+
+  // Enable infinite looping and dot synchronization
+  function initScrollListeners() {
+    let scrollTimeout;
+
+    carouselTrack.addEventListener("scroll", () => {
+      // 1. Synchronize dots
+      if (!isTeleporting) {
+        // Identify current scroll position, initialize closestIndex variable, initialize minDifference variable at Infinity so that the first real value will always be lower and override it
+        const currentScroll = carouselTrack.scrollLeft;
+        let closestIndex = 0;
+        let minDifference = Infinity;
+
+        // Loop through cards and identify which one has the smallest difference between its current position and its centered position; Math.abs() gets the absolute value of this difference so it will work properly whether the card is to the left or to the right of the center
+
+        // Then update the minDifference and the closestIndex based on the "winning" card
+        allCards.forEach((card, i) => {
+          const diff = Math.abs(currentScroll - getScrollPosition(i));
+
+          if (diff < minDifference) {
+            minDifference = diff;
+            closestIndex = i;
+          }
+        });
+
+        // Account for clones when identifying the corresponding dotIndex
+        let dotIndex = closestIndex - 1;
+
+        if (closestIndex === 0) {
+          dotIndex = testimonials.length - 1;
+        }
+
+        if (closestIndex === allCards.length - 1) {
+          dotIndex = 0;
+        }
+
+        // Loop through dots and activate the one whose index matches dotIndex
+        dots.forEach((dot, i) => {
+          dot.setAttribute("aria-selected", i === dotIndex ? "true" : "false");
+        });
+      }
+
+      // 2. Teleporting behavior; 50ms timer ensures that teleporting will not occur until after the user releases scrolling
+      clearTimeout(scrollTimeout);
+
+      scrollTimeout = setTimeout(() => {
+        // Identify the current scroll position, the centered position of the front clone, and the centered position of the rear clone; the buffer value will be used to create wiggle room that allows teleporting to fire without depending on extreme precision
+        const currentScroll = carouselTrack.scrollLeft;
+        const frontClonePos = getScrollPosition(0);
+        const endClonePos = getScrollPosition(allCards.length - 1);
+        const buffer = 5;
+
+        // 2A. User scrolled left onto the front clone. This is determined by checking the distance between the current scroll position and the center position of the front clone; if this distance is 5px or less, teleporting fires
+        if (Math.abs(currentScroll - frontClonePos) <= buffer) {
+          // Freeze dot syncing so that it doesn't get confused
+          isTeleporting = true;
+
+          // Set currentCardIndex to the index of the last non-clone card, then scroll to that position
+          currentCardIndex = testimonials.length;
+          carouselTrack.scrollTo({
+            left: getScrollPosition(currentCardIndex),
+            behavior: "auto",
+          });
+
+          // Unfreeze dot syncing
+          isTeleporting = false;
+        }
+
+        // 2B. User scrolled right onto the end clone
+        else if (Math.abs(currentScroll - endClonePos) <= buffer) {
+          // Freeze dot syncing
+          isTeleporting = true;
+
+          // Set currentCardIndex to the index of the first non-clode card, then scroll to that position
+          currentCardIndex = 1;
+          carouselTrack.scrollTo({
+            left: getScrollPosition(currentCardIndex),
+            behavior: "auto",
+          });
+
+          // Unfreeze dot syncing
+          isTeleporting = false;
+        }
+      }, 50);
+    });
+  }
+
+  // --- Execution ---
+  await populateCarousel();
+  populateIndicators();
+  createScrollClones();
+  setInitialPosition();
+  initDotNavigation();
+  initScrollListeners();
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  initMobileMenu();
+  initSignupForm();
+  await initCarousel();
+});

@@ -229,11 +229,11 @@
           </h2>
           <ul
             id="carousel-track"
-            class="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-4 py-12"
+            class="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto px-4 pt-12"
           ></ul>
           <div
             id="carousel-indicators"
-            class="flex justify-center gap-2 lg:hidden"
+            class="flex justify-center gap-3 lg:hidden"
           ></div>
           <a
             href="#"
@@ -259,11 +259,13 @@
 
       <!-- Indicator Template -->
       <template id="indicator-template">
-        <button
-          type="button"
-          class="size-2.5 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
-          aria-label="Go to slide"
-        ></button>
+        <div>
+          <button
+            type="button"
+            class="carousel-dot size-3 cursor-pointer rounded-full border border-brand-base bg-transparent transition-all aria-selected:bg-brand-base"
+            aria-label="Go to slide"
+          ></button>
+        </div>
       </template>
 
       <!-- Call-to-Action -->
