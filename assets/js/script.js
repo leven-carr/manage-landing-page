@@ -318,18 +318,19 @@ async function initCarousel() {
         });
       }
 
-      // 2. Teleporting behavior; 50ms timer ensures that teleporting will not occur until after the user releases scrolling
+      // 2. Teleporting behavior; 20ms timer ensures that teleporting will not occur until after the user releases scrolling
       clearTimeout(scrollTimeout);
 
       scrollTimeout = setTimeout(() => {
-        // Identify the current scroll position, the centered position of the front clone, and the centered position of the rear clone; the buffer value will be used to create wiggle room that allows teleporting to fire without depending on extreme precision
+        // Identify the current scroll position, calculate the maximum scroll position of the carousel track, and initialize a buffer to enable teleporting without depending on extreme precision.
         const currentScroll = carouselTrack.scrollLeft;
-        const frontClonePos = getScrollPosition(0);
+        const maxScrollLeft =
+          carouselTrack.scrollWidth - carouselTrack.clientWidth;
         const endClonePos = getScrollPosition(allCards.length - 1);
-        const buffer = 5;
+        const buffer = 3;
 
-        // 2A. User scrolled left onto the front clone. This is determined by checking the distance between the current scroll position and the center position of the front clone; if this distance is 5px or less, teleporting fires
-        if (Math.abs(currentScroll - frontClonePos) <= buffer) {
+        // 2A. User scrolled all the way to the left
+        if (currentScroll <= buffer) {
           // Freeze dot syncing so that it doesn't get confused
           isTeleporting = true;
 
@@ -344,8 +345,8 @@ async function initCarousel() {
           isTeleporting = false;
         }
 
-        // 2B. User scrolled right onto the end clone
-        else if (Math.abs(currentScroll - endClonePos) <= buffer) {
+        // 2B. User scrolled all the way to the right
+        else if (currentScroll >= maxScrollLeft - buffer) {
           // Freeze dot syncing
           isTeleporting = true;
 
@@ -359,7 +360,7 @@ async function initCarousel() {
           // Unfreeze dot syncing
           isTeleporting = false;
         }
-      }, 50);
+      }, 20);
     });
   }
 
