@@ -36,6 +36,7 @@
 
         <!-- Desktop Nav -->
         <nav
+          aria-label="Desktop Navigation"
           class="hidden items-center justify-center gap-8 text-center font-medium lg:flex"
         >
           <a href="#" class="hover:text-text-light">Pricing</a>
@@ -55,6 +56,7 @@
 
         <!-- Mobile Menu Button -->
         <button
+          type="button"
           id="menu-btn"
           aria-label="Toggle Menu"
           aria-controls="mobile-menu"
@@ -81,6 +83,7 @@
           class="lg:aria-hidden absolute inset-x-6 top-24 z-modal mx-auto hidden max-w-md rounded bg-bg-base px-6 py-9 lg:hidden"
         >
           <nav
+            aria-label="Mobile Navigation"
             class="flex flex-col items-center justify-center gap-6 text-center font-medium"
           >
             <a href="#" class="hover:text-text-light">Pricing</a>
@@ -230,6 +233,8 @@
           <ul
             id="carousel-track"
             class="flex w-full snap-x snap-mandatory gap-6 overflow-x-auto px-4 pt-12"
+            tabindex="0"
+            aria-label="Testimonials slider"
           ></ul>
           <div
             id="carousel-indicators"
@@ -249,8 +254,8 @@
         <li
           class="carousel-card flex w-full max-w-md shrink-0 snap-center flex-col items-center justify-center gap-6 bg-bg-light px-6 pb-8 text-sm lg:max-w-lg lg:text-base"
         >
-          <img src="" alt="" class="avatar -mt-8 size-18 rounded-full" />
-          <h3 class="client-name font-medium"></h3>
+          <img alt="" class="avatar -mt-8 size-18 rounded-full" />
+          <h3 class="client-name font-medium">Fetching...</h3>
           <blockquote
             class="review-text leading-loose text-text-light"
           ></blockquote>
@@ -327,6 +332,7 @@
         </form>
 
         <nav
+          aria-label="Footer Navigation"
           class="grid grid-flow-col grid-rows-4 gap-x-24 gap-y-4 lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-1"
         >
           <a href="#" class="hover:text-brand-base">Home</a>
@@ -339,6 +345,7 @@
         </nav>
 
         <ul
+          aria-label="Social Media Links"
           class="flex items-center justify-center gap-8 lg:col-span-1 lg:col-start-1 lg:row-span-1 lg:row-start-2 lg:gap-4 lg:justify-self-start"
         >
           <li>
@@ -416,6 +423,7 @@
           You have successfully subscribed to our email list.
         </p>
         <button
+          type="button"
           id="dismiss-btn"
           class="mt-4 w-fit cursor-pointer self-center rounded-full bg-bg-base px-6 py-3 font-medium text-brand-base hover:text-brand-light lg:text-lg"
         >

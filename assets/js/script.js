@@ -114,7 +114,6 @@ function initSignupForm() {
   const form = document.getElementById("signup-form");
   const emailInput = document.getElementById("email-input");
   const errorMsg = document.getElementById("error-msg");
-  const submitBtn = document.getElementById("submit-btn");
   const successModal = document.getElementById("success-modal");
   const dismissBtn = document.getElementById("dismiss-btn");
 
